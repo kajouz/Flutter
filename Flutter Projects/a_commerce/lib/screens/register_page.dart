@@ -1,16 +1,19 @@
-import 'package:a_commerce/screens/register_page.dart';
+
+
 import 'package:a_commerce/widgets/custom_btn.dart';
 import 'package:a_commerce/widgets/custom_input.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
+
+
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +27,9 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.only(
                   top: 24.0,
                 ),
-                child: Text(
-                  "Welcome User,\nLogin to your account",
+                child: Text("Create A New Account",
                   textAlign: TextAlign.center,
-                  style: Constants.boldHeading,
-                ),
+                  style: Constants.boldHeading,),
               ),
               Column(
                 children: [
@@ -39,8 +40,8 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: "Password...",
                   ),
                   CustomBtn(
-                    text: "Login",
-                    onPressed: () {
+                    text: "Create New Account",
+                    onPressed: (){
                       print("Clicked The Login Button");
                     },
                   ),
@@ -48,19 +49,16 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  bottom: 16.0,
-                ),
+                  bottom: 16.0,),
                 child: CustomBtn(
-                  text: "Create New Account",
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RegisterPage()),
-                    );
+                  text: "Back To Login",
+                  onPressed: (){
+                    Navigator.pop(context);
                   },
                   outlineBtn: true,
                 ),
               ),
+
             ],
           ),
         ),
