@@ -1,4 +1,7 @@
 import 'package:a_commerce/constants.dart';
+import 'package:a_commerce/tabs/home_tab.dart';
+import 'package:a_commerce/tabs/saved_tab.dart';
+import 'package:a_commerce/tabs/search_tab.dart';
 import 'package:a_commerce/widgets/bottom_tabs.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -40,21 +43,10 @@ class _HomePageState extends State<HomePage> {
                 });
               },
               children: [
-                Container(
-                  child: Center(
-                    child: Text("Homepage"),
-                  ),
-                ),
-                Container(
-                  child: Center(
-                    child: Text("Search Page"),
-                  ),
-                ),
-                Container(
-                  child: Center(
-                    child: Text("Saved Page"),
-                  ),
-                ),
+                HomeTab(),
+                SearchTab(),
+                SavedTab(),
+
               ],
             ),
           ),
