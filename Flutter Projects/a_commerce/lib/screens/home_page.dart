@@ -1,4 +1,5 @@
 import 'package:a_commerce/constants.dart';
+import 'package:a_commerce/services/firebase_services.dart';
 import 'package:a_commerce/tabs/home_tab.dart';
 import 'package:a_commerce/tabs/saved_tab.dart';
 import 'package:a_commerce/tabs/search_tab.dart';
@@ -12,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  FirebaseServices _firebaseServices = FirebaseServices();
 
   PageController _tabsPageController;
   int _selectedTab = 0;

@@ -2,6 +2,8 @@
 
 
 import 'package:a_commerce/constants.dart';
+import 'package:a_commerce/screens/cart_page.dart';
+import 'package:a_commerce/services/firebase_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -11,17 +13,30 @@ class CustomActionBar extends StatelessWidget {
   final bool hasBackArrow;
   final bool hasTitle;
   final bool hasBackground;
-  final CollectionReference _usersRef = FirebaseFirestore.instance.collection("users");
 
-  User _user = FirebaseAuth.instance.currentUser;
 
   CustomActionBar({this.title,this.hasBackArrow,this.hasTitle,this.hasBackground});
+
+  FirebaseServices _firebaseServices = FirebaseServices();
+
+
+
+  final CollectionReference _usersRef = FirebaseFirestore.instance.collection("users");
+
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
     bool _hasBackArrow = hasBackArrow ?? false;
     bool _hasTitle = hasTitle ?? true;
     bool _hasBackground = hasBackground ?? true;
+
+
+
+
     return Container(
       decoration: BoxDecoration(
         gradient: _hasBackground ? LinearGradient(
@@ -71,18 +86,22 @@ class CustomActionBar extends StatelessWidget {
                 title ?? "Action Bar",
                 style: Constants.boldHeading,
               ),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage(), ));
+            },
 
-          Container(
-            width: 42.0,
-            height: 42.0,
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            alignment: Alignment.center,
-            child: StreamBuilder(
-              stream: _usersRef.doc(_user.uid).collection("Cart").snapshots(),
-              builder: (context, snapshot){
+            child: Container(
+              width: 42.0,
+              height: 42.0,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              alignment: Alignment.center,
+              child: StreamBuilder(
+                stream: _usersRef.doc(_firebaseServices.getUserID()).collection("Cart").snapshots(),
+                builder: (context, snapshot){
                 int _totalItems = 0;
 
                 if(snapshot.connectionState == ConnectionState.active){
@@ -99,6 +118,7 @@ class CustomActionBar extends StatelessWidget {
                 );
               },
             ),
+          ),
           )
         ],
       ),
