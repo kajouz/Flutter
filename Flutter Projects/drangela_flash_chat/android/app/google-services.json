@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "483032674002",
+    "project_id": "drangela-flash-chat",
+    "storage_bucket": "drangela-flash-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483032674002:android:283244361475435f67c70b",
+        "android_client_info": {
+          "package_name": "com.kajouz.drangela_flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483032674002-ccfvov30nolscg2dhaap5tcrmsdijlpm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kajouz.drangela_flash_chat",
+            "certificate_hash": "bd18edca9d5efa2d5033a8fa99042be6e715569c"
+          }
+        },
+        {
+          "client_id": "483032674002-m19tm0fc5ecu0q07opsv4f3rc6u1h273.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi8_CemVTJTrcQt-zJ10-pYJFCRbkfUew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483032674002-m19tm0fc5ecu0q07opsv4f3rc6u1h273.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
